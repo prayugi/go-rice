@@ -1,9 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 )
 
-func main (){
-	fmt.Println("hai")
+var fs = flag.NewFlagSet("service", flag.ExitOnError)
+var httpAddr = fs.String("http.addr", ":8080", "http listen address")
+
+func main() {
+	run()
+
+}
+
+func run() {
+	//run the service
+	fmt.Println(*httpAddr)
 }
